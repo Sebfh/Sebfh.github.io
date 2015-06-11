@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Hello - Wind and forest</title>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="./css/vendor/animate.css">
 	<link rel="stylesheet" href="./css/style.css">
 </head>
@@ -11,28 +12,33 @@
 		
 	</nav>
 	<section class="page row h-100 ml-0 mr-0" role="main">
-		<div class="col-xs-12 col-md-6 h-100 block">
+		<div class="col-xs-12 col-md-6 h-100 block bgo-02">
 			<div class="box">
-				<div class="content">
-					<span class="promise">We love working with the web</span>
+				<div class="content p-20">
+					<p class="promise animated fadeIn">We love working with<br> 
+						<span class="thing">the web</span>
+						<span class="thing">context</span>
+						<span class="thing">people</span>
+						<span class="thing">mobile</span>
+					</p>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-md-3 h-50 block">
+		<div class="col-xs-12 col-md-3 h-50 block bgo-01">
 			<div class="box">
 				<div class="content">
 					<h2>We enjoy a good brainstorm session</h2>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-md-3 h-50 block">
+		<div class="col-xs-12 col-md-3 h-50 block bgo-01">
 			<div class="box">
 				<div class="content">
 					<h3>We would love to talk</h3>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-md-3 h-50 block">
+		<div class="col-xs-12 col-md-3 h-50 block bgo-03">
 			<div class="box">
 				<div class="content">
 					<h4>Passionate about concepts</h4>
@@ -61,10 +67,31 @@
 		</div>
 	</section>
 	<video id="working" autoplay loop>
-		<source src="./assets/background.mp4" type="video/mp4">
+		<source src="./assets/bg-type.mp4" type="video/mp4">
 	</video>
 	<div class="border-1 hidden-xs hidden-sm"></div>
 	<div class="border-2 hidden-xs hidden-sm"></div>
 	<div class="border-3 hidden-xs hidden-sm"></div>	
+	<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript">
+
+		
+		(function() {
+
+		    var quotes = $(".thing");
+		    var quoteIndex = -1;
+		    
+		    function showNextQuote() {
+		        ++quoteIndex;
+		        quotes.eq(quoteIndex % quotes.length)
+		            .fadeIn(1500)
+		            .delay(1500)
+		            .fadeOut(1500, showNextQuote);
+		    }
+		    
+		    showNextQuote();
+		    
+		})();
+	</script>
 </body>
 </html>

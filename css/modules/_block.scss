@@ -8,8 +8,8 @@
 	
 	background-position: center;
   	background-size: cover;
-  	background-color: rgba(0,0,0,0.35);
   	transition: background-color 1s;
+	background-color: rgba(0,0,0,0.2);
 	
 	&:before {
 		  position: absolute;
@@ -17,5 +17,7 @@
 		  background-color: inherit;
 		  content: ' ';
 		  z-index: 5;
+		  
+		  
 		}
 }
