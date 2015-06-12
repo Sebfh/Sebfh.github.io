@@ -20,9 +20,9 @@
 		</span>
 	</header>
 	<section class="page row h-100 ml-0 mr-0" role="main">
-		<div class="col-xs-12 col-md-6 h-100 block bgo-02">
+		<div class="col-xs-12 col-md-6 h-100 block bgo-02" id="preview" data-id="initial">
 			<div class="box">
-				<div class="content">
+				<div class="content" id="initial">
 					<p class="promise animated fadeIn">We love working with<br> 
 						<span class="thing">the web</span>
 						<span class="thing">context</span>
@@ -30,16 +30,25 @@
 						<span class="thing">mobile</span>
 					</p>
 				</div>
+				<div class="content hidden" id="brainstorm">
+					<p class="promise animated fadeInUpBig">Brainstorm</p>
+						<p class="animated fadeInUpBig" style="font-size: 24px; max-width: 500px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum quis lacus id ultrices. Etiam auctor dui magna, in tincidunt sem consequat eget. Aliquam consequat sem non erat aliquet posuere. Mauris eu mi quam. Quisque sed neque auctor, aliquet quam non, aliquam metus. Donec lorem risus, interdum quis rutrum a, sodales sit amet lacus. Morbi gravida cursus felis in imperdiet. </p>
+				</div>
+				<div class="content hidden" id="talk">
+					<p class="promise animated fadeInUpBig">Bla bla bla<br> 
+						
+					</p>
+				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-md-3 h-50 block bgo-01">
+		<div class="col-xs-12 col-md-3 h-50 block showhand" data-background-url="" data-id="brainstorm">
 			<div class="box">
 				<div class="content">
 					<h2>We enjoy a good brainstorm session</h2>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-md-3 h-50 block bgo-01">
+		<div class="col-xs-12 col-md-3 h-50 block bgo-01" data-id="talk">
 			<div class="box">
 				<div class="content">
 					<h3>We would love to talk</h3>
@@ -62,7 +71,7 @@
 						  <span class="additional-name"></span>
 						  <span class="family-name"></span>
 						</span>
-						 <div class="org"><strong>Wind and forest</strong></div>
+						 <div class="org"><strong>wind &amp; forest</strong></div>
 						 <a class="email" href="mailto:hello@windandforest.nl">hello@windandforest.nl</a>
 						 <div class="adr">
 						  <span class="locality">Tilburg</span>
@@ -82,8 +91,6 @@
 	<div class="border-3 hidden-xs hidden-sm"></div>	
 	<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript">
-
-		
 		(function() {
 
 		    var quotes = $(".thing");
@@ -99,7 +106,35 @@
 		    
 		    showNextQuote();
 		    
+			$('.block').on('click', function(){	
+				showSection($(this).data('id'));
+			});
+			
+			
+			
 		})();
+		
+			function showSection(id){
+				var bg_url = $('.block[data-id='+id+']').data('background-url');
+				
+				$('#preview')
+					.css('background', "url('" + bg_url + "') no-repeat left top")
+					.css('background-size', 'cover')
+					.css('background', 'transition: background-image 1s');
+				
+				$('#preview .content').addClass('hidden');
+				$('#preview #' + id).removeClass('hidden');
+			};
+		
+			function init() {
+				$('#preview')
+				.css('background-color', 'rgba(0,0,0,0.2)')
+				.css('background-image', 'none')
+				.css('transition', 'background-color 1s');
+				
+				$('#preview .content').addClass('hidden');
+				$('#preview #initial').removeClass('hidden');
+			};
 	</script>
 </body>
 </html>
