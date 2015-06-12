@@ -1,0 +1,24 @@
+.logo {
+	//vertical-align: bottom;
+	&.logo-sm {
+		width: 100px;
+	}
+	&.logo-xs {
+		width: 30px;
+  		margin-top: -10px;
+  		margin-right: 5px;
+	}
+}
+.logo-text {
+	font-family: 'Roboto Slab',serif;
+	//font-family: 'Grand Hotel', cursive;
+	background-color: rgba(0,0,0,0.3);
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: -9px;
+  font-size: 24px;
+  line-height: 30px;
+	&.white {
+		color: #fff;
+	}
+}
