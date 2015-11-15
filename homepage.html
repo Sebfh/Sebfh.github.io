@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="nl" class="h-100">
+<head>
+	<meta charset="UTF-8">
+	<title>wind & forest</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" href="./img/logowhite400x400.png">	
+		
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="./css/vendor/animate.css">
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="h-100">
+	<header class="main p-20" role="banner">
+		<img src="./img/logowhite400x400.png" class="logo logo-xs animated flip" alt="Wind & Forest logo">
+		<span class="logo-text white">
+			wind & forest
+		</span>
+	</header>
+	<section class="page row h-100 ml-0 mr-0" role="main">
+		<div class="col-xs-12 col-md-6 h-100 block bgo-02" id="preview" data-id="initial">
+			<div class="box">
+				<div class="content" id="initial">
+					<p class="promise animated fadeIn">We love working with<br> 
+						<span class="thing">the web</span>
+						<span class="thing">context</span>
+						<span class="thing">people</span>
+						<span class="thing">mobile</span>
+					</p>
+				</div>
+				<div class="content hidden" id="brainstorm">
+					<p class="promise animated fadeInUpBig">Brainstorm</p>
+						<p class="animated fadeInUpBig" style="font-size: 24px; max-width: 500px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum quis lacus id ultrices. Etiam auctor dui magna, in tincidunt sem consequat eget. Aliquam consequat sem non erat aliquet posuere. Mauris eu mi quam. Quisque sed neque auctor, aliquet quam non, aliquam metus. Donec lorem risus, interdum quis rutrum a, sodales sit amet lacus. Morbi gravida cursus felis in imperdiet. </p>
+				</div>
+				<div class="content hidden" id="talk">
+					<p class="promise animated fadeInUpBig">Bla bla bla<br> 
+						
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-3 h-50 block showhand" data-background-url="./img/standup.jpg" data-id="brainstorm">
+			<div class="box">
+				<div class="content">
+					<h2>We enjoy a good brainstorm session</h2>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-3 h-50 block bgo-01" data-id="talk">
+			<div class="box">
+				<div class="content">
+					<h3>We would love to talk</h3>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-3 h-50 block bgo-03" data-background-url="./img/laptoppies.jpg" data-id="concept">
+			<div class="box">
+				<div class="content">
+					<h4>Passionate about concepts</h4>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-3 h-50 block">
+			<div class="box">
+				<div class="content" style="text-align: right; padding: 20px;">
+					<div id="" class="vcard">
+						 <span class="fn n">
+						    <span class="given-name"></span>
+						  <span class="additional-name"></span>
+						  <span class="family-name"></span>
+						</span>
+						 <div class="org"><strong>wind &amp; forest</strong></div>
+						 <a class="email" href="mailto:hello@windandforest.nl">hello@windandforest.nl</a>
+						 <div class="adr">
+						  <span class="locality">Tilburg</span>
+						
+						 </div>
+						 <div class="tel">06 816 299 58</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<video id="working" autoplay loop>
+		<source src="./assets/bg-ferry.mp4" type="video/mp4">
+	</video>
+	<div class="border-1 hidden-xs hidden-sm"></div>
+	<div class="border-2 hidden-xs hidden-sm"></div>
+	<div class="border-3 hidden-xs hidden-sm"></div>	
+	<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript">
+		(function() {
+
+		    var quotes = $(".thing");
+		    var quoteIndex = -1;
+		    
+		    function showNextQuote() {
+		        ++quoteIndex;
+		        quotes.eq(quoteIndex % quotes.length)
+		            .fadeIn(1500)
+		            .delay(1500)
+		            .fadeOut(1500, showNextQuote);
+		    }
+		    
+		    showNextQuote();
+		    
+			$('.block').on('click', function(){	
+				showSection($(this).data('id'));
+			});
+			
+			
+			
+		})();
+		
+			function showSection(id){
+				var bg_url = $('.block[data-id='+id+']').data('background-url');
+				
+				$('#preview')
+					.css('background', "url('" + bg_url + "') no-repeat left top")
+					.css('background-size', 'cover')
+					.css('background', 'transition: background-image 1s')
+					.css('background-color', 'rgba(0,0,0,0.5)');
+				
+				$('#preview .content').addClass('hidden');
+				$('#preview #' + id).removeClass('hidden');
+			};
+		
+			function init() {
+				$('#preview')
+				.css('background-color', 'rgba(0,0,0,0.2)')
+				.css('background-image', 'none')
+				.css('transition', 'background-color 1s');
+				
+				$('#preview .content').addClass('hidden');
+				$('#preview #initial').removeClass('hidden');
+			};
+	</script>
+</body>
+</html>
