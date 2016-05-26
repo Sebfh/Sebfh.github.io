@@ -14,3 +14,18 @@
 	  
 	font-size: 48px;
 }
+.site-intro {
+	font-size: 36px;
+	line-height: 1.2;
+}
+.site-believe {
+	font-size: 24px;
+	line-height: 1.2;
+	    font-family: charter;
+}
+.site-cta a{
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
+}
